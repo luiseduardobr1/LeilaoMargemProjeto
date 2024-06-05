@@ -1,0 +1,19 @@
+*** Instruções ***
+
+-- Case Manager Organon --
+
+1) Adicione o deck "GeraLista DCTG_EXCA.pwf" da pasta Anarede_Margem no caso
+de estudo do anarede. 
+
+2) Após isso, será gerado o deck "DCTG_EXCA.pwf" que contém todas as contigências
+selecionadas para o nível de vizinhança buscado. 
+
+3) Volte ao programa "Margem - Anarede e Organon" e clique na opção conv2ctg e 
+carregue o arquivo "DCTG_EXCA.pwf". Com isso, o programa irá converter a lista de
+contingências do anarede para o organon e criará na mesma pasta o arquivo "DCTG_EXCA_CTG.ctg"
+
+4) Com todos os arquivos na mesma pasta (bnt1, caso.pwf, monitor_organon.def, 
+DCTG_EXCA_CTG.ctg e organon.prm), abra o OrganonII.exe.
+
+5) No Organon, vá em Tools --> Case Manager --> Static Analysis. Selecione a pasta
+que tem todos os arquivos clicando em Working Folder. 

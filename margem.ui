@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>738</width>
+    <height>529</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Margem - Anarede e Organon</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="9" column="2">
+     <widget class="QLineEdit" name="lineEdit_7"/>
+    </item>
+    <item row="3" column="2" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_4"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="FotolicaBotao">
+      <property name="text">
+       <string>Fotólica</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="lineEdit_3"/>
+    </item>
+    <item row="7" column="2" colspan="4">
+     <widget class="QLineEdit" name="lineEdit_5"/>
+    </item>
+    <item row="0" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="AnaredeBotao">
+      <property name="text">
+       <string>Caso Anarede</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Barra candidata</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Vizinhanças</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QLineEdit" name="lineEdit_6"/>
+    </item>
+    <item row="1" column="2" colspan="4">
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Subestação</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Síncronos Fictícios</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Excluir LTs do Monitoramento</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="actionCONV2EVT">
+        <property name="text">
+         <string>CONV2EVT</string>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ConvBotao">
+        <property name="text">
+         <string>CONV2CTG</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="GerarBotao">
+        <property name="text">
+         <string>GERAR</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="2" colspan="5">
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>738</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTeste1">
+    <property name="title">
+     <string>Ferramentas</string>
+    </property>
+    <addaction name="actionLimpar"/>
+    <addaction name="actionTXT_Anarede_Excel"/>
+   </widget>
+   <addaction name="menuTeste1"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="abrirFotolica">
+   <property name="text">
+    <string>abrirFotolica</string>
+   </property>
+  </action>
+  <action name="actionGerar">
+   <property name="text">
+    <string>Gerar</string>
+   </property>
+  </action>
+  <action name="actionAnarede">
+   <property name="text">
+    <string>actionAnarede</string>
+   </property>
+  </action>
+  <action name="actionConv">
+   <property name="text">
+    <string>Conv</string>
+   </property>
+  </action>
+  <action name="LimparDeck">
+   <property name="text">
+    <string>Limpar Deck de Contingências</string>
+   </property>
+  </action>
+  <action name="actionConverter_Excel_An_lise_Conting_ncias_Anarede">
+   <property name="text">
+    <string>Converter Excel - Análise Contingências Anarede</string>
+   </property>
+  </action>
+  <action name="actionLimpar">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Limpar Deck CTGs</string>
+   </property>
+  </action>
+  <action name="actionTXT_Anarede_Excel">
+   <property name="text">
+    <string>TXT Resultado Anarede -&gt; Excel</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>FotolicaBotao</sender>
+   <signal>clicked()</signal>
+   <receiver>abrirFotolica</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>GerarBotao</sender>
+   <signal>clicked()</signal>
+   <receiver>actionGerar</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>242</x>
+     <y>363</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AnaredeBotao</sender>
+   <signal>clicked()</signal>
+   <receiver>actionAnarede</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ConvBotao</sender>
+   <signal>clicked()</signal>
+   <receiver>actionConv</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>346</x>
+     <y>363</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>LimparDeck</sender>
+   <signal>changed()</signal>
+   <receiver>actionLimpar</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTXT_Anarede_Excel</sender>
+   <signal>changed()</signal>
+   <receiver>actionTXT_Anarede_Excel</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCONV2EVT</sender>
+   <signal>clicked()</signal>
+   <receiver>actionCONV2EVT</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
