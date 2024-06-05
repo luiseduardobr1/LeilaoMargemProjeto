@@ -78,7 +78,7 @@ class MarginApp(QtWidgets.QMainWindow, margem.Ui_MainWindow):
             evt_final=''
             for i in ctg_organon:
                 if "  'De:" in i:
-                    
+                    #Teste    
                     contador += 1
                     i0 = str(contador) + i
                     evt_final += i0
