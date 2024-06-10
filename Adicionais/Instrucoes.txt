@@ -13,7 +13,7 @@ carregue o arquivo "DCTG_EXCA.pwf". Com isso, o programa irá converter a lista 
 contingências do anarede para o organon e criará na mesma pasta o arquivo "DCTG_EXCA_CTG.ctg"
 
 4) Com todos os arquivos na mesma pasta (bnt1, caso.pwf, monitor_organon.def, 
-DCTG_EXCA_CTG.ctg e organon.prm), abra o OrganonII.exe.
+DCTG_EXCA_CTG.ctg e organon.prm), abra o Organon.
 
 5) No Organon, vá em Tools --> Case Manager --> Static Analysis. Selecione a pasta
 que tem todos os arquivos clicando em Working Folder. 

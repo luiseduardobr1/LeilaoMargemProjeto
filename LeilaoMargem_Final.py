@@ -569,12 +569,37 @@ FIM"""
         deck_spt.insert(0, 'exlf')
         deck_spt = '\n'.join(deck_spt)
         deck_spt += """( Adiciona outra barra de referência
-(DWMT
-((SE) (Bger (Pmx ) (Pb (Qmn) (Qmx) (Ps
-(  1   6369
+(DWMT5
+(( #SE  Tp(1=System/2=Area/2=Zone/4=Bus)   0/#Area/#Zone/#Bus
+(   1   4     6369
+(   2   4     6369
+(   3   4     6369
 (99999
-marginb3 mwmax=3600. mwstep=25. mwtol=5. vviotol=1.0 pfctg=t reset=f
+(****************************************************************** 
+(PARAMETROS P/ RODAR MARGEM COM PROCESSAMENTO DISTRIBUIDO
+(******************************************************************
+PARAM PFBLKTAP     = Y
+PARAM PFGENVARIT    = 1     
+PARAM CTGGENVARIT   = 1     
+PARAM CPFGENVARIT   = 1     
+PARAM PFSHTVARIT    = 1     
+PARAM CTGSHTVARIT   = 1     
+PARAM CPFSHTVARIT   = 1     
+PARAM PFTAPVARIT    = 1     
+PARAM CTGTAPVARIT   = 1     
+PARAM CPFTAPVARIT   = 1     
+PARAM PFVOLTRST     = N     
+PARAM CTGVOLTRST    = N     
+PARAM CPFVOLTRST    = N
+MRGPRM mwmax=2000. mwstep=25. mwtol=5. vviotol=1.0 pfctg=t RMVCTG=T reset=f ADDUDT=F SAVEALL=F
 end"""
+        deck_spt = """(****************************************************************** 
+(Exclui do Monitoramento
+(******************************************************************
+(BRANCH 46116  5510 6 MONIT = N 
+(BRANCH  5245 43995 2 MONIT = N 
+(BUS  5642 MONIT = N
+(BUS  9688 MONIT = N\n""" + deck_spt
         with open('Organon_Margem\\margem.spt', 'w') as f:
             f.write(deck_spt)
             
@@ -600,7 +625,7 @@ margem.spt""".format(self.lineEdit_5.text().split('\\')[-1])
         shutil.copy(self.lineEdit_5.text(), 'Anarede_Margem')
         shutil.copy(self.lineEdit_5.text(), 'Organon_CaseManager')
         shutil.copy('Adicionais\\configuracoes.prm', 'Organon_Margem')
-        shutil.copy('Adicionais\\margem.def', 'Organon_Margem')
+        shutil.copy('Organon_CaseManager\\monitor_organon.def', 'Organon_Margem')
         shutil.copy('Adicionais\\BNT1.dat', 'Organon_CaseManager')
         shutil.copy('Adicionais\\Organon.prm', 'Organon_CaseManager')
         shutil.copy('Adicionais\\Instrucoes.txt', 'Organon_CaseManager')          

@@ -3,31 +3,33 @@
 ! <---- PARÂMETROS NUMÉRICOS PARA ELEMENTOS DA REDE ---->
 !
 ORGZMIN       = .00001       Impedancia serie minima (pu)
-ORGZMAX       = 100.         Impedancia serie maxima (pu)
+ORGZMAX       = 100.         Impedancia serie máxima (pu)
 ORGNULLTAP    = 1.0          Tap default
-ORGTAPMININF  = 0.001        Valor minimo para o tap minimo
-ORGTAPMINSUP  = 1.1          Valor maximo para o tap maximo
-ORGTAPMAXINF  = 0.9          Valor minimo para o tap maximo
-ORGTAPMAXSUP  = 1000.0       Valor maximo para o tap maximo
+ORGTAPMININF  = 0.001        Valor minimo para o tape minimo
+ORGTAPMINSUP  = 1.1          Valor maximo para o tape mínimo
+ORGTAPMAXINF  = 0.9          Valor minimo para o tape máximo
+ORGTAPMAXSUP  = 1000.0       Valor maximo para o tape máximo
 ORGDEFMIN     = -60.0        Angulo minimo para trafo defasador (graus)
 ORGDEFMAX     = 60.0         Angulo maximo para trafo defasador (graus)
 ORGRCCMIN     = 0.00001      Resistencia minima para linha DC (pu)
-ORGRCCMAX     = 0.0          Resistencia maxima para eletrodo de terra (pu)
-ORGXCCMAX     = 0.00001      Reatancia maxima para linha DC (pu)
+ORGRCCMAX     = 0.0          Resistencia máxima para eletrodo de terra (pu)
+ORGXCCMAX     = 0.00001      Reatancia máxima para linha DC (pu)
 ORGALFAMIN    = 0.0          Valor minimo para o angulo de disparo alfa (graus)
 ORGALFAMAX    = 30.0         Valor maximo para o angulo de disparo alfa (graus)
 ORGGAMAMIN    = 0.0          Valor minimo para o angulo de extincao gama (graus)
 ORGGAMAMAX    = 30.0         Valor maximo para o angulo de extincao gama (graus)
-ORGVOLTINF    = 0.9          Valor default para sinalizar subtensao (pu)
-ORGVOLTSUP    = 1.1          Valor default para sinalizar sobretensao (pu)
-ORGUNDERVOLT  = 0.5          Tensao minima na critica de dados (pu)
-ORGOVERVOLT   = 1.3          Tensao maxima na critica de dados (pu)
+ORGVOLTINF    = 0.9          Valor default para sinalizar subtensão (pu)
+ORGVOLTSUP    = 1.1          Valor default para sinalizar sobretensão (pu)
+ORGUNDERVOLT  = 0.5          tensão minima na critica de dados (pu)
+ORGOVERVOLT   = 1.3          tensão máxima na critica de dados (pu)
 ORGGENSHRMOD  = 0            Divisao de MVAR p/ dif ger. (0=FP,1=Igual,2=#Un,3=Qmax)
-ORGUNITCOMMT  = 1            Modo de sincronização de unidades de geração (0-ANAT0, 1-Sequencial por Grupo, 2-Maiores unidades primeiro)
+ORGUNITCOMMT  = 1            Modo de sincronização de unidades de geração (0-ANAT0, 1-Sequencial por Grupo, 2-Maiores unidades primeiro, 3-Seq. Grp p/ P e Qmax do PWF / Qmax BNT1)
 !                             
 ! <---- OPÇÕES PARA ELEMENTOS DA REDE ---->
 !
+ORGPWFVSPEC   = Y            Salva a tensão especificada ao invés da tensão da barra no arquivo de dados do ANAREDE?
 ORGPWFMONIT   = Y            Importa as opções de fluxo de potência e monitoração do arquivo de dados do ANAREDE?
+ORGANAZNSEQ   = N            Importa os parâmetros de sequência negativa e zero do arquivo de dados do ANAFAS?
 ORGADDUDT     = Y            Adiciona as variáveis em UDTs?
 !
 ! <---- PARÂMETROS NUMÉRICOS PARA FLUXO DE POTÊNCIA ---->
@@ -43,15 +45,15 @@ CPFCTRLBOUNC  = 2            Número de vezes em que é permitida a troca do tipo 
 PFMAXITER     = 90           Número maximo de iteracoes para convergência
 CTGMAXITER    = 30           Número maximo de iteracoes para convergência
 CPFMAXITER    = 17           Número maximo de iteracoes para convergência
-PFGENVARIT    = 1            Número de iterações com limite de Mvar aberto para geradores  
-CTGGENVARIT   = 1            Número de iterações com limite de Mvar aberto para geradores  
-CPFGENVARIT   = 1            Número de iterações com limite de Mvar aberto para geradores  
-PFSHTVARIT    = 1            Número de iterações com limite de Mvar aberto para shunts  
-CTGSHTVARIT   = 1            Número de iterações com limite de Mvar aberto para shunts 
-CPFSHTVARIT   = 1            Número de iterações com limite de Mvar aberto para shunts 
-PFTAPVARIT    = 1            Número de iterações com controle de tape desligado  
-CTGTAPVARIT   = 1            Número de iterações com controle de tape desligado 
-CPFTAPVARIT   = 1            Número de iterações com controle de tape desligado 
+PFGENVARIT    = 2            Número de iterações com limite de Mvar aberto para geradores  
+CTGGENVARIT   = 2            Número de iterações com limite de Mvar aberto para geradores  
+CPFGENVARIT   = 2            Número de iterações com limite de Mvar aberto para geradores  
+PFSHTVARIT    = 2            Número de iterações com limite de Mvar aberto para shunts  
+CTGSHTVARIT   = 2            Número de iterações com limite de Mvar aberto para shunts 
+CPFSHTVARIT   = 2            Número de iterações com limite de Mvar aberto para shunts 
+PFTAPVARIT    = 2            Número de iterações com controle de tape desligado  
+CTGTAPVARIT   = 2            Número de iterações com controle de tape desligado 
+CPFTAPVARIT   = 2            Número de iterações com controle de tape desligado 
 PFMWLDMDL     = 0            Modelo carga (MW)   (0=dados,1=ZC,2=IC,3=PC)  
 CTGMWLDMDL    = 0            Modelo carga (MW)   (0=dados,1=ZC,2=IC,3=PC) 
 CPFMWLDMDL    = 0            Modelo carga (MW)   (0=dados,1=ZC,2=IC,3=PC) 
@@ -61,7 +63,7 @@ CPFMVARLDMDL  = 0            Modelo carga (MVAR) (0=dados,1=ZC,2=IC,3=PC)
 !
 PFMVATOL      = 0.001        Tolerância do erro de potência para convergência (pu)
 !
-CTGOVRLDLV    = 0            Limite monitorado de carregamento (1-Normal, 2-Alerta, 3-Emergência)
+CTGOVRLDLV    = 1            Limite monitorado de carregamento (1-Normal, 2-Alerta, 3-Emergência)
 CTGYREDFCT    = 30.00000     Percentual de redução da admitância. (Usado com o parâmetro CTGREDUCEY)
 !
 CPFMODE       = 1            Modo de cálculo do fluxo de potência continuado (1-load level, 2-nose tip; 3-nose)                                                
@@ -69,9 +71,9 @@ CPFNCRITBUS   = 6            Número de barras críticas apresentadas no relatório
 !                             
 ! <---- OPÇÕES PARA FLUXO DE POTÊNCIA ---->
 !
-PFVOLTRST     = N            Reseta as tensões controladas aos valores especificados?
-CTGVOLTRST    = N            Reseta as tensões controladas aos valores especificados? 
-CPFVOLTRST    = N            Reseta as tensões controladas aos valores especificados? 
+PFVOLTRST     = Y            Reseta as tensões controladas aos valores especificados?
+CTGVOLTRST    = Y            Reseta as tensões controladas aos valores especificados? 
+CPFVOLTRST    = Y            Reseta as tensões controladas aos valores especificados? 
 PFFLTSTRT     = N            Inicia com ajuste automatico de módulo de tensão?
 CTGFLTSTRT    = N            Inicia com ajuste automatico de módulo de tensão?
 CPFFLTSTRT    = N            Inicia com ajuste automatico de módulo de tensão?
@@ -93,9 +95,9 @@ CPFAREACNTRL  = N            Habilita controle de intercambio entre areas?
 PFCHSSWING    = Y            Habilita criação automatica de swings em ilhamento?
 CTGCHSSWING   = Y            Habilita criação automatica de swings em ilhamento?
 CPFCHSSWING   = Y            Habilita criação automatica de swings em ilhamento?
-PFCURRATING   = Y            Corrige limite para carregamento com tesão (corrente)?
-CTGCURRATING  = Y            Corrige limite para carregamento com tesão (corrente)?
-CPFCURRATING  = Y            Corrige limite para carregamento com tesão (corrente)?
+PFCURRATING   = Y            Corrige limite para carregamento com tensão (corrente)?
+CTGCURRATING  = Y            Corrige limite para carregamento com tensão (corrente)?
+CPFCURRATING  = Y            Corrige limite para carregamento com tensão (corrente)?
 PFMIDRANGE    = N            Centraliza a tensão na faixa controlada por tape ou shunt?
 CTGMIDRANGE   = N            Centraliza a tensão na faixa controlada por tape ou shunt?
 CPFMIDRANGE   = N            Centraliza a tensão na faixa controlada por tape ou shunt?
@@ -104,17 +106,18 @@ CTGDSTSLACK   = N            Usa swing distribuida?
 CPFDSTSLACK   = N            Usa swing distribuida?
 PFCHKCTRVLT   = Y            Força o controle de tensão de remoto para local se o limite de tensão do gerador for violado?
 CTGCHKCTRVLT  = Y            Força o controle de tensão de remoto para local se o limite de tensão do gerador for violado?
-CPFCHKCTRVLT  = N            Força o controle de tensão de remoto para local se o limite de tensão do gerador for violado?
+CPFCHKCTRVLT  = Y            Força o controle de tensão de remoto para local se o limite de tensão do gerador for violado?
 PFEMRVLTLVL   = N            Usar os limites de emergência para verificar se a tensão do gerador for violado? (Usado com o parâmetro PFCHKCTRVLT)
 CTGEMRVLTLVL  = N            Usar os limites de emergência para verificar se a tensão do gerador for violado? (Usado com o parâmetro PFCHKCTRVLT)
 CPFEMRVLTLVL  = N            Usar os limites de emergência para verificar se a tensão do gerador for violado? (Usado com o parâmetro PFCHKCTRVLT)
 !
 PFREDSWNG     = N            Permite a redução de unidades de geracao na barra swing, pelo critério de mínima inércia?
 PFLOGMSG      = N            Apresenta mensagens detalhadas na convergencia do flow?
+PFPRLTRFTAP   = Y            Identifica os transformadores em paralelo para alterar seus tapes em conjunto?
 !
 CTGRESTOREBC  = Y            Restaura o caso base após a análise de contingência?                                                       
 CTGREDUCEY    = Y            Reduzir a impedância de circuitos, gradualmente, se a contingência de abrir circuitos não convergir?                                      
-CTGRUNSPS     = N            Permite rodar arquivos SPS para contingências estáticas? (Se esse parâmetro estiver ligado, o SPS não vai rodar em simulações dinâmicas)                                                                   !
+CTGRUNSPS     = N            Permite rodar arquivos SPS para contingências estáticas?
 CTGPRNTSPS    = N            Escreve o relatório do SPS?
 !                           
 CPFDVSTOP     = N            Parar o continuado por subtensão?                                                                         
@@ -130,7 +133,7 @@ OPFMUMAX      = 10.          Valor maximo  para o parametro de barreira 'Mu'
 OPFLOGBARTOL  = 0.01         Tolerancia para a barreira logaritmica 
 OPFRO         = 0.9995       Fator de correcao dos passos primal e dual (<1) 
 OPFVCONSTR    = 1            Restrições de tensão (0 = Limites monitorados,   1 = Setting Point + Margin, 2 = Limites Fixos
-OPFVSETPNT    = 0            Alvo de tensão       (0 = Valor do caso de flow, 1 = Flat Start,             2 = Specified for PV and Flat for PQ
+OPFVSETPNT    = 2            Alvo de tensão       (0 = Valor do caso de flow, 1 = Flat Start,             2 = Specified for PV and Flat for PQ
 OPFSTRTPNT    = 0            Partida da tensão    (0 = Valor do caso de flow, 1 = Flat Start;             2 = Specified for PV and converged flow for PQ, with 1 iteration
 OPFCDV        = 0.08         Margem de tensão para barras PV. Usado no parâmetro OPFVCONSTR no modo 'Setting Point + Margin'
 OPFUDV        = 0.20         Margem de tensão para barras PQ. Usado no parâmetro OPFVCONSTR no modo 'Setting Point + Margin'
@@ -145,14 +148,14 @@ OPFCSHTMAX    = 10.          Penalidade máxima do controle de shunt
 OPFMWRNG      = 0.10000      MW mínimo, em pu, para habilitar o controle de MW de geradores (a faixa de MW precisa ser maior do que esse parâmetro)                                                                                                    
 OPFMVRRNG     = 0.10000      Mvar mínimo, em pu, para habilitar o controle de tensão de geradores (a faixa de Mvar precisa ser maior do que esseparâmetro)                                       
 OPFBMRG       = 0.10000      Mvar mínimo, em pu, para habilitar o controle de tensão de shunts (a faixa de Mvar precisa ser maior do que esseparâmetro)                                    
-OPFCMTMRG     = 0.80000      Percentual de PMax para ligar/desligar unidades de geração                                                 
+OPFCMTMRG     = 1.00000      Percentual de PMax para ligar/desligar unidades de geração                                                 
 OPFVLMTMAX    = 1.10000      Limite superior fixo de tensão (pu). Usado no parâmetro OPFVCONSTR no modo 'Limites Fixos'                                                              
 OPFVLMTMIN    = 0.90000      Limite inferior fixo de tensão (pu). Usado no parâmetro OPFVCONSTR no modo 'Limites Fixos'                                                                
-OPFVARFCTR    = 1.00000      Penalidade de balanceamento var/Volt (0.1 to 10). Valores menores penalizam o desvio de tensão e valores maiores penalizam o desvio de Mvar
+OPFVARFCTR    = 0.60000      Penalidade de balanceamento var/Volt (0.1 to 10). Valores menores penalizam o desvio de tensão e valores maiores penalizam o desvio de Mvar
 !
 ! <---- OPÇÕES PARA O FLUXO DE POTÊNCIA ÓTIMO ---->
 !
-OPFCENTER     = Y            Inicia variaveis de controle no centro do intervalo? 
+OPFCENTER     = N            Inicia variaveis de controle no centro do intervalo? 
 OPFBLKTAP     = N            Bloqueia controle de tensão por tap? 
 OPFDSCTAP     = N            Habilita tap discreto? 
 OPFBLKSHIFT   = Y            Bloqueia controle de fluxo por trafo defasador? 
@@ -172,6 +175,7 @@ OPFCSHTDEV    = Y            Minimizar desvios de shunt contínuo a partir do pon
 OPFITAPDEV    = Y            Minimizar desvios de tape a partir do ponto inicial (caso de flow) ao invés de 1.0                                    
 OPFGVARDEV    = Y            Minimizar desvios de Mvar de gerador shunt a partir do ponto inicial (caso de flow) ao invés de zero?                       
 OPFVARBLNC    = Y            Balancear as penalidades de var/Volt? Usado no parâmetro OPFVARFCTR
+OPFVLENF      = Y            Limita a tensão dos geradores ao máximo/mínimo do grupo limite de tensão?
 !
 ! <---- PARÂMETROS NUMÉRICOS PARA SIMULAÇÃO NO TEMPO ---->
 !
@@ -181,16 +185,17 @@ TDSHMAX       = 40.          Passo de integracao maximo (s)
 TDSRELTOL     = 0.0001       Tolerancia para o erro relativo
 TDSABSTOL     = 0.0001       Tolerancia para o erro absoluto
 TDSBFREQTC    = 0.02         Constante de tempo para a medicao da frequencia de barra (s)
-TDSMINPLTTMI  = 0.001        Intervalo de tempo mínimo para plotagem (s)
+TDSMINPLTTMI  = 0.000        Intervalo de tempo mínimo para plotagem (s)
 TDSSNGFAULT   = 0.70         Tensão na barra de falta para o defeito Single Line Fault (pu) 
 TDSBIFGFAULT  = 0.40         Tensão na barra de falta para o defeito Two-Phase-Ground Fault (pu)
 TDSVLOADLVL   = 0.70         Tensão limite para converter cargas para 100% Z constante (pu) 
 TDSFMIN       = 0.93         Frequencia minima para interrupção da simulação dinâmica (pu)
-TDSFMAX       = 1.10         Frequencia maxima para interrupção da simulação dinâmica (pu)
+TDSFMAX       = 1.10         Frequencia máxima para interrupção da simulação dinâmica (pu)
 TDSMXCHKANG   = 360.         Ângulo máximo para interrupção da simulação dinâmica por descolamento de um gerador  (graus)
 TDSOVRLDLV    = 2            Limite para carregamento (1-Normal, 2-Alerta, 3-Emergência)
 TDSMAXTRJ     = 2500         Número máximo de curvas para plotagem 
 TDSMAXPLT     = 250          Número máximo de graficos para plotagem
+TDSPLTVLP     = 2000         Número de retas verticais de atuação de proteção a serem exibidas nos gráficos
 TDSTIME       = 15.0         Tempo total de simulação (s)
 TDSLDSHDMW    = 20.00000     Limite para sinalização do corte de carga (MW)        
 !
@@ -207,52 +212,56 @@ TDSRMVFAIL    = N            Remove da simulação geradores com erro de inicializ
 TDSWCOIREF    = Y            Usa a velocidade do centro de inércia como referência para o amortecimento de geradores?
 TDSLTEREP     = N            Mostra os relatórios de LTE e chaveamentos?                                                                    
 TDSLDMCHGREP  = N            Mostra o relatório de barras que tiveram sua modelagem de carga alterada para reestabelecer a solução?                                            
-TDSSHEDREP    = N            Mostra o relatório de corte/incremento de carga?                                                                   
-TDSSPSINIREP  = N            Mostra o relatório de initialização do SPS?  
-TDSBLKAVR     = N            Bloqueia todos os modelos de regulador de tensao?                                   
-TDSBLKOEL     = N            Bloqueia todos os mod. de limitador de sobreexcitacao?                                   
-TDSBLKUEL     = N            Bloqueia todos os mod. de limitador de subexcitacao?                                    
-TDSBLKPSS     = N            Bloqueia todos os mod. de estabilizador de potencia (PSS)?                                
+TDSSHEDREP    = Y            Mostra o relatório de corte/incremento de carga?                                                                   
+TDSSHEDREPB   = N            Mostra o relatório de corte de carga individual por barra?                                                                   
+TDSSPSINIREP  = N            Mostra o relatório de inicialização do SPS?  
+TDSBLKAVR     = N            Bloqueia todos os modelos de regulador de tensão?                                   
+TDSBLKOEL     = N            Bloqueia todos os modelos de limitador de sobreexcitacao?                                   
+TDSBLKUEL     = N            Bloqueia todos os modelos de limitador de subexcitacao?                                    
+TDSBLKPSS     = N            Bloqueia todos os modelos de estabilizador de potencia (PSS)?                                
 TDSBLKGOV     = N            Bloqueia todos os modelos de regulador de velocidade?
+TDSBLKWTG     = N            Bloqueia todos os modelos de gerador eólico?
+TDSBLKPVG     = N            Bloqueia todos os modelos de gerador fotovoltaico?
 TDSBLKCOMMF   = Y            Bloqueia a falha de comutação natural quando a falha forçada estiver presente?
 TDSCURRATING  = Y            Corrige limite p/ carregamento com V (corrente)?
+TDSAUTPRT     = N            Habilita as autoproteções de gerador síncrono?
 !
 ! <---- OPÇÕES E PARÂMETROS PARA AVALIAÇÃO DE CRITÉRIOS NA SIMULAÇÃO NO TEMPO ---->
 ! 
 ! CRITÉRIOS DO NERC
 !
-TDSLUVGCHK    = N            Checa subtensao temporizada (NERC)?     
-TDSLUVVAL     = 0.8          V limite para subtensao temporizada (pu)     
-TDSLUVTIME    = 0.08         Tempo maximo p/ duracao da subtensao (s)     
+TDSLUVGCHK    = N            Checa subtensão temporizada (NERC)?     
+TDSLUVVAL     = 0.8          V limite para subtensão temporizada (pu)     
+TDSLUVTIME    = 0.08         Tempo maximo p/ duracao da subtensão (s)     
 TDSLUVKV      = 230          Avaliar subt. temp. p/ barras c/ Vbase acima de (kV)
-TDSLOVCHK     = N            Checa sobretensao temporizada (NERC)?  
-TDSLOVVAL     = 1.2          V limite para sobretensao temporizada (pu)  
-TDSLOVTIME    = 0.2          Tempo maximo p/ duracao da sobretensao (s)  
+TDSLOVCHK     = N            Checa sobretensão temporizada (NERC)?  
+TDSLOVVAL     = 1.2          V limite para sobretensão temporizada (pu)  
+TDSLOVTIME    = 0.2          Tempo maximo p/ duracao da sobretensão (s)  
 TDSLOVKV      = 230.         Avaliar sobret. temp. p/ barras c/ Vbase acima de (kV)  
-TDSIUVGCHK    = N            Checa subtensao instantanea (NERC)?  
-TDSIUVGVAL    = 0.6          V limite para subtensao instantanea (pu)  
+TDSIUVGCHK    = N            Checa subtensão instantanea (NERC)?  
+TDSIUVGVAL    = 0.6          V limite para subtensão instantanea (pu)  
 TDSIUVGKV     = 230.         Avaliar subt. inst. p/ barras c/ Vbase acima de (kV)  
-TDSIOVCHK     = N            Checa sobretensao instantanea (NERC)?  
-TDSIOVVAL     = 1.3          V limite para sobretensao instantanea (pu)  
+TDSIOVCHK     = N            Checa sobretensão instantanea (NERC)?  
+TDSIOVVAL     = 1.3          V limite para sobretensão instantanea (pu)  
 TDSIOVKV      = 230.         Avaliar sobret. inst. p/ barras c/ Vbase acima de (kV)  
 !
 ! CRITÉRIOS DO ONS
 ! 
-TDSVDPCHK     = Y            Checa queda de tensao pre/pos falta?
-TDSVDPVAL     = 0.10         Queda maxima de V (pre/pos falta) (pu)                               @@@@ Procedimentos de Rede = 0.10
+TDSVDPCHK     = Y            Checa queda de tensão pre/pos falta?
+TDSVDPVAL     = 0.10         Queda máxima de V (pre/pos falta) (pu)                               @@@@ Procedimentos de Rede = 0.10
 TDSVDPKV      = 230.         Avaliar queda de V p/ barras c/ Vbase acima de (kV) 
-TDSVLCHK      = Y            Checa subtensao em regime pos-falta? 
+TDSVLCHK      = Y            Checa subtensão em regime pos-falta? 
 TDSTMLCHK     = Y            Checa sobrecarga em regime pos-falta?                                @@@@ Procedimentos de Rede
 TDSTMLREF     = 100.         Referencia para violacao do limite termico (%)
 TDSDMPCHK     = N            Checa amortecimento via Prony? 
 TDSDMPVAL     = 0.15         Limite para amortecimento via Prony 
-TDSOSCCHK     = Y            Checa criterio oscilacao de V (ONS 23.3)?
-TDSOSCTIME    = 10.          Tempo apos ultimo evento p/ avaliacao da osc. de V (s)               @@@@ Procedimentos de Rede = 10s
-TDSOSCVAL     = 0.02         Valor limite para oscilacao de V (pu)                                @@@@ Procedimentos de Rede = 0.02
-TDSOSCKV      = 230.         Avaliar oscilacao de V p/ barras c/ Vbase acima de (kV) 
-TDSUV12CHK    = Y            Checa criterio de subtensao no 1o. e 2o. swings? 
-TDSUV12VAL1   = 0.60         V limite para subtensao no 1o. swing                                 @@@@ Procedimentos de Rede = 0.60
-TDSUV12VAL2   = 0.80         V limite para subtensao no 2o. swing                                 @@@@ Procedimentos de Rede = 0.80
+TDSOSCCHK     = Y            Checa criterio oscilação de V (ONS 2.3)?
+TDSOSCTIME    = 10.          Tempo apos ultimo evento p/ avaliação da osc. de V (s)               @@@@ Procedimentos de Rede = 10s
+TDSOSCVAL     = 0.02         Valor limite para oscilação de V (pu)                                @@@@ Procedimentos de Rede = 0.02
+TDSOSCKV      = 230.         Avaliar oscilação de V p/ barras c/ Vbase acima de (kV) 
+TDSUV12CHK    = Y            Checa criterio de subtensão no 1o. e 2o. swings? 
+TDSUV12VAL1   = 0.60         V limite para subtensão no 1o. swing                                 @@@@ Procedimentos de Rede = 0.60
+TDSUV12VAL2   = 0.80         V limite para subtensão no 2o. swing                                 @@@@ Procedimentos de Rede = 0.80
 TDSUV12KV     = 230.         Avaliar 1o e 2o swing p/ barras c/ Vbase acima de (kV) 
 TDSUFRCHK     = Y            Checa criterio de subfrequencia de geradores? 
 TDSUFRVAL     = 0.95         Frequencia limite para subfrequencia de geradores (pu)               @@@@ Procedimentos de Rede (UHEs e UTEs com valores diferentes)
@@ -261,35 +270,43 @@ TDSOFRVAL     = 1.1          Frequencia limite para sobrefrequencia de geradores
 TDSBFRCHK     = Y            Checa criterio de subfrequencia de barras? 
 TDSBFRVAL     = 0.93         Frequencia limite para subfrequencia de barras (pu) 
 TDSBFRTIME    = 0.02         Tempo maximo p/ duracao da subfrequencia de barra (s)  
-TDSPACCHK     = N            Checa criterio de variacao da potencia acelerante
-TDSPACVAL     = 0.5          Limite p/ variacao da potência acelerante (pu base maq)              @@@@ Procedimentos de Rede = 0.5 pu na base na máquina
+TDSPACCHK     = N            Checa criterio de variação da potencia acelerante
+TDSPACVAL     = 0.5          Limite p/ variação da potência acelerante (pu base maq)              @@@@ Procedimentos de Rede = 0.5 pu na base na máquina
 TDSPPSCHK     = Y            Checa excursao da PPS projetada no eixo R
 TDSPPSVAL     = 50.          Limite da excursao (% do intervalo entre os blinders) 
-TDSEFDCHK     = Y            Checa o criterio de tensao de campo maxima?
-TDSEFDVAL     = 2.1          Limite para a tensao de campo maxima (pu)
-TDSEFDBUS     = 1107         Barra do gerador p/ avaliacao da tensao de campo maxima
-TDSIFDCHK     = Y            Checa o criterio de corrente de campo maxima?
-TDSIFDVAL     = 2.833        Limite para a corrente de campo maxima (pu)
-TDSIFDBUS     = 36           Barra do gerador p/ avaliacao da corrente de campo maxima
-TDSOELCHK     = Y            Checa crit. tempo max. atuacao lim. de sobreexcitacao?
-TDSOELTIME    = 0.2          Tempo maximo p/ atuacao do lim. de sobreexcitacao (s)
-TDSOELBUS     = 1107         Barra do ger. p/ tempo max. atuacao lim. de sobreexc.
-TDSANGCHK     = N            Checa criterio de maxima abertura angular?
+TDSEFDCHK     = Y            Checa o criterio de tensão de campo máxima?
+TDSEFDVAL     = 2.1          Limite para a tensão de campo máxima (pu)
+TDSEFDBUS     = 1107         Barra do gerador p/ avaliação da tensão de campo máxima
+TDSIFDCHK     = Y            Checa o criterio de corrente de campo máxima?
+TDSIFDVAL     = 2.833        Limite para a corrente de campo máxima (pu)
+TDSIFDBUS     = 36           Barra do gerador p/ avaliação da corrente de campo máxima
+TDSOELCHK     = Y            Checa crit. tempo max. atuação lim. de sobreexcitacao?
+TDSOELTIME    = 0.2          Tempo maximo p/ atuação do lim. de sobreexcitacao (s)
+TDSOELBUS     = 1107         Barra do ger. p/ tempo max. atuação lim. de sobreexc.
+TDSANGCHK     = N            Checa criterio de máxima abertura angular?
 TDSANGBUS1    = 5022         Barra do gerador G1 p/ crit. max. abertura angular
 TDSANGBUS2    = 6422         Barra do gerador G2 p/ crit. max. abertura angular
 TDSANGBUS3    = 501          Barra do gerador G3 p/ crit. max. abertura angular
 TDSDCCFCHK    = Y            Checa ocorrência de falha de comutação natural?
+TDSRCFCHK     = N            Checa o critério de taxa de variação de frequência (RoCoF)?
+TDSROCOF      = 1.00         Limite para a taxa de variação de frequência (RoCoF) (Hz/s)
+!
+! <---- OPÇÕES PARA AUTOPROTEÇÃO DE GERADOR SÍNCRONO ---->
+!
+PRTGMAXANG    = Y            Habilita/Desabilita proteção de máxima abertura angular
+!
+! <---- PARÂMETROS NUMÉRICOS PARA AUTOPROTEÇÃO DE GERADOR SÍNCRONO ---->
+!
+PRTBRKTM      = 0.000        Tempo do disjuntor/atraso após proteção sensibilizada
 !
 ! <---- PARÂMETROS NUMÉRICOS PARA DSA ---->
 !
 DSATYPE       = 4            Avaliação (1-Stc Op, 2-Stc RegSeg, 3-Dyn Op, 4-Dyn RegSeg) 
-DSACYCLTIME   = 10000        Intervalo entre aval. sucessivas no modo ciclico (s) 
 !
 ! <---- OPÇÕES PARA DSA ---->
 !
 DSAPREPRSCPT  = N            Executa o arquivo de script de comandos antes da leitura dos dados (dyn,evt,ctg,def,etc)? *** OBS: FLEXIBILIDADE PARA ALTERAÇÕES DE TOPOLOGIA ***
 DSABLKFLOW0   = N            Flow executado pelo mestre com todos os controles congelados?                             *** OBS: BOM PARA TEMPO REAL POIS NAO MUDA O PONTO DE OPERACAO ***
-DSACYCLE      = N            Ativa modo de avaliacao ciclica automatica? 
 !
 ! <---- PARÂMETROS NUMÉRICOS PARA REGIÃO DE SEGURANCA ----> 
 !
@@ -299,9 +316,9 @@ SRGBNDRTOL    = 50.          Tol. p/ a busca binaria do limite de seguranca (MW)
 SRGNUMDIR     = 16           Número de direções para construção da região (4, 8, ..., 40)                              *** OBS: PRECISA SER MULTIPLO DE 4 ***
 SRGCOMTPRCT   = 80.          Percentual de PMax para ligar/desligar unidades de geração
 SRGSTEPMOD    = 1.           Fator moderador do preditor do continuado (valor entre 0.1 e 1.0)                         *** OBS: PODE AJUDAR EM REGIOES EM QUE AEROGERADORES ESTEJAM COM A FAIXA DE REATIVO FECHADA***
-SRGVVIOTYPE   = 0            Tipo de violação de tensão (0-Undervoltage, 1-Overvoltage, 2-Over/Undervoltage) 
+SRGVVIOTYPE   = 2            Tipo de violação de tensão (0-Undervoltage, 1-Overvoltage, 2-Over/Undervoltage) 
 SRGCRTROPT    = 0            Crit.(0:QQ,1:DL,2:VD,3:1S,4:2S,5:UF,6:OF,7:BF,8:MA,9:PA,10:RM,11:EF,12:IF,13:OE)
-SRGDMPCRTR    = 1            Tipo de criterio de amortecimento (0-Prony,1-Oscilacao de V)
+SRGDMPCRTR    = 1            Tipo de criterio de amortecimento (0-Prony,1-oscilação de V)
 SRGBNDOPT     = 0            Coordenada de Violação (0:interpolação, 1:ponto sem violação, 2:ponto com violação)
 SRGSCRNOPT    = 0            Reg.Seg.Exibida (0-Todas, 1-G1xG2, 2-G1xG3, 3-G2xG3, 4-UDT) 
 SRGQUADOPT    = 0            Quad G1xG2 (0-Todos, 1-N, 2-NE, 3-E, 4-SE, 5-S, 6-SO, 7-O, 8-NO)
@@ -313,16 +330,17 @@ SRGUDTYINDEX  = 2            Indice do eixo Y da UDT, para o quarto nomograma
 !
 SRGCOMTGEN    = Y            Adiciona máquinas não sincronizadas no caso base? 
 SRGNOVARCMT   = Y            Ignora Qg na definicao do numero de unidades de geracao?
-SRGPGMINLIM   = N            Respeita o limite mínimo de geração das usinas?
+SRGPGMINLIM   = Y            Respeita o limite mínimo de geração das usinas?
 SRGSWGLIM     = Y            Respeita o limite máximo de geração barra swing?
 SRGEARLYTERM  = N            Salva apenas o resultado mais restritivo?
 SRGSHWNUMBR   = Y            Mostra o número da direção nos pontos dos graficos da região de segurança?
 SRGNAMTTIP    = N            Usar nome de barra no lugar ds número nos tooltips?
+SRGDBGSLV     = N            Mostra na janela DOS o processamento dos processos paralelos?
 !
 ! <---- OPÇÕES PARA SCRIPT ---->
 !
-SPTRUN        = Y            Executa o arquivo de script, se houver, logo após a leitura do arquivo WFS?
-SPTCHKATEND   = Y            Verifica a rede apenas ao final do processamento do arquivo de script?                    *** OBS: UTILIZADO NA MONTAGEM DE CASOS VIA CASE MANAGER ***
+SPTRUN        = N            Executa o arquivo de script, se houver, logo após a leitura do arquivo WFS?
+SPTCHKATEND   = N            Verifica a rede apenas ao final do processamento do arquivo de script?                    *** OBS: UTILIZADO NA MONTAGEM DE CASOS VIA CASE MANAGER ***
 !
 ! <---- OPÇÕES PARA EQUIVALENTE ---->
 !
@@ -342,23 +360,19 @@ CMVOLTVAR     = 2            Variação de tensão (%)
 !  <---- OPÇÕES PARA CASE MANAGER  ---->
 !
 CMIGNLMT      = Y            Ignora os limites de geração das pequenas usinas (BIO, PCH, PCT, etc)?                    *** OBS: UTILIZADO NA MONTAGEM DE CASOS VIA CASE MANAGER ***
-CMSTPONERR    = N            Interrompe a execução se erros forem encontrados durante o processamento?                 *** OBS: UTILIZADO NA MONTAGEM DE CASOS VIA CASE MANAGER ***
+CMSTPONERR    = N            Interrompe a execução se erros forem encontrados durante a montagem de casos?             *** OBS: UTILIZADO NA MONTAGEM DE CASOS VIA CASE MANAGER ***
 CMTMLCRTCHK   = N            Força que ambas as condições precisam ser atendidas para reter os circuitos?
 CMVLMTCHK     = Y            Verifica os limites de tensão inferiores e superiores?
+CMSTCNOVRL    = N            Ignora sobrecarga em regime normal da análise estática?
+CMSTCNEG      = N            Ignora variações negativas da análise estática?  
+CMSTCPOS      = N            Ignora variações positivas da análise estática? 
+CMSENSRUN     = N            Executa a análise de sensibilidade de geração para cada sobrecarga da análise estática?
+CMSENSNOVRL   = N            Ignora a análise de sensibilidade para sobrecarga em regime normal da análise estática?
+CMSENSNEG     = N            Ignora a análise de sensibilidade para variações negativas da análise estática?
+CMSENSPOS     = N            Ignora a análise de sensibilidade para variações positivas da análise estática?   
 !
 ! <---- OPÇÕES PARA RELATÓRIOS ---->
 !
-RPTONLYVIOL   = N            Relatorios de violacao apresentam apenas violacoes?
-RPTBUS        = Y            Grava relatorio de barras ao salvar relatorio txt? 
-RPTFLW        = Y            Grava relatorio de fluxos ao salvar relatorio txt? 
-RPTHVDC       = Y            Grava relatorio de elos CC ao salvar relatorio txt? 
-RPTAREA       = N            Grava relatorio resumo de areas ao salvar relatorio txt? 
-RPTGENMVAR    = N            Grava relatorio de ger. MVAR ao salvar relatorio txt? 
-RPTLOADING    = Y            Grava relatorio de carreg.LT/Trafo ao salvar relatorio txt? 
-RPTUNDVOLT    = Y            Grava relatorio de subtensao ao salvar relatorio txt? 
-RPTOVRVOLT    = N            Grava relatorio de sobretensao ao salvar relatorio txt? 
-RPTSTCTG      = N            Grava relatorio de análise ctg.est. ao salvar relatorio txt? 
-RPTDYNCTG     = N            Grava relatorio de análise ctg.din. ao salvar relatorio txt? 
-RPTUDT        = N            Grava relatorio das tabelas definidas pelo usuário?
+RPTONLYVIOL   = Y            Relatorios de violacao apresentam apenas violacoes?
 !
 END
